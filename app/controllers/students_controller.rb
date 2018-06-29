@@ -28,7 +28,7 @@ class StudentsController < ApplicationRecord
       render :edit
     end
   end
-  
+
   private
 
   def set_student

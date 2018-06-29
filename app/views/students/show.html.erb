@@ -1,0 +1,7 @@
+<% if @user.admin %>
+  <p>ADMIN</p>
+<% end %>
+
+<p>Name: <%= @student.full_name %></p>
+<p>Email: <%= @student.email %></p>
+<p><%= link_to 'See Courses', courses_path %></p>

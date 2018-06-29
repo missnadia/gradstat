@@ -1,0 +1,2 @@
+class GoalsController < ApplicationRecord
+end

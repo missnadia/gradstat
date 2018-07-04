@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:student_id] = @student.id
       redirect_to student_path(@student)
     else
-      redirect_to signin_path
+      redirect_to login_path
     end
   end
 

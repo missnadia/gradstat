@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root 'static#home'
 
-  resources :students
+  resources :students do
+    resources :courses, only: [:index, :show, :new, :edit]
+  end
+
   resources :courses
   resources :goals
 

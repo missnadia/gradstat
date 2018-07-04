@@ -1,0 +1,12 @@
+<%= form_for(@course) do |f| %>
+  <%= f.label :name, "Name" %><br>
+  <%= f.text_field :name %>
+
+  <%= f.label :hours_spent, "How many hours did you spend on this lesson?" %><br>
+  <%= f.number_field :hours_spent %>
+
+  <%= f.label :completed, "Completed?" %><br>
+  <%= f.number_field :completed %>
+
+  <%= f.submit %>
+<% end %>

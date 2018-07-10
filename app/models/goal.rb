@@ -1,4 +1,4 @@
 class Goal < ApplicationRecord
-  belongs_to :student
-  belongs_to :course
+  has_many :courses
+  has_many :students, through: :courses
 end

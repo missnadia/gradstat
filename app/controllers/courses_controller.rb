@@ -2,11 +2,14 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update]
 
   def index
-    @course = Course.all
+    @courses = Course.all
   end
 
   def new
     @course = Course.new
+  end
+
+  def show
   end
 
   def edit
@@ -37,8 +40,9 @@ class CoursesController < ApplicationController
 
   def course_params
     params.require(:course).permit(
-      :name,
-      :hours_spent,
-      :completed
+      :student_id,
+      :goal_id,
+      :name
     )
+  end
 end

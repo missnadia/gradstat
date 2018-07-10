@@ -1,4 +1,4 @@
 class Course < ApplicationRecord
-  has_many :goals
-  has_many :students, through: :goals
+  belongs_to :student
+  belongs_to :goal
 end

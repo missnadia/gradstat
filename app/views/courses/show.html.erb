@@ -1,0 +1,20 @@
+<div class="center">
+
+  <div class="info">
+    <p><strong>Lesson:</strong> <%= @course.name %></p>
+    <p><strong>Logged Hours:</strong> <%= @course.goal.hours_spent %></p>
+    <p><strong>Completed?</strong> <%= @course.goal.completed %></p>
+
+    <% if current_user.admin %>
+      <%= link_to 'Edit Course', [:edit, @course] %></p>
+    <% else %>
+      <form action="/course/new" method="post">
+        <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+        <%= tag(:input, :type => "hidden", :name => :student_id, :value => current_user.id) %>
+        <%= tag(:input, :type => "hidden", :name => :course_id, :value => @course.id) %>
+        <input class="btn btn-light" type="submit" value="Add Course">
+      </form>
+    <% end %>
+    <%= link_to 'Back', courses_path,class: "btn btn-primary btn-light" %></p>
+  </div>
+</div>

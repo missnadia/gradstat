@@ -1,18 +1,25 @@
 <%= form_for(@student) do |f| %>
-  <%= f.label :first_name, "First Name" %><br>
-  <%= f.text_field :first_name %>
-
-  <%= f.label :last_name, "Last Name" %><br>
-  <%= f.text_field :last_name %>
-
-  <%= f.label :email, "Please enter your email:" %><br>
-  <%= f.text_field :email %>
-
-  <%= f.label :username, "Please enter a username:" %><br>
-  <%= f.text_field :username %>
-
-  <%= f.label :password %><br>
-  <%= f.password_field :password %>
-
-  <%= f.submit %>
+  <ul>
+    <%= f.label :first_name, "First Name:" %><br>
+    <%= f.text_field :first_name %>
+  </ul>
+  <ul>
+    <%= f.label :last_name, "Last Name:" %><br>
+    <%= f.text_field :last_name %>
+  </ul>
+  <ul>
+    <%= f.label :email %>:<br>
+    <%= f.text_field :email %>
+  </ul>
+  <ul>
+    <%= f.label :username %>:<br>
+    <%= f.text_field :username %>
+  </ul>
+  <ul>
+    <%= f.label :password %>:<br>
+    <%= f.password_field :password %>
+  </ul>
+  <ul>
+    <%= f.submit "Create Account" %>
+  </ul>
 <% end %>

@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2018_06_29_192139) do
   create_table "goals", force: :cascade do |t|
     t.integer "student_id"
     t.integer "course_id"
-    t.boolean "attained"
+    t.boolean "completed"
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

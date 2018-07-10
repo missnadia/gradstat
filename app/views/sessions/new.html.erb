@@ -1,9 +1,13 @@
 <%= form_for @student, url: '/signin' do |f| %>
-  <%= f.label :username, "Username:" %><br>
-  <%= f.text_field :username %>
-
+  <ul>
+    <%= f.label :username, "Username:" %><br>
+    <%= f.text_field :username %>
+  </ul>
+  <ul>
   <%= f.label :password, "Password:" %><br>
   <%= f.password_field :password %>
-
+  </ul>
+  <ul>
   <%= f.submit "Sign In" %>
+  </ul>
 <% end %>

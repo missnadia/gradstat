@@ -1,4 +1,4 @@
-class GoalsController < ApplicationRecord
+class GoalsController < ApplicationController
   def new
     @goal = Goal.create(goal_params)
     redirect_to student_path(@goal.student)

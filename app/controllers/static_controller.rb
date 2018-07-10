@@ -1,4 +1,4 @@
-class StaticController < ApplicationRecord
+class StaticController < ApplicationController
   def home
   end
 end

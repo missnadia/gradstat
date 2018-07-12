@@ -1,5 +1,15 @@
-<% @courses.each do |course| %>
-    
-<% end %>
-    
+<table>
+    <tr>
+        <th>Course &nbsp;</th>
+        <th>Time Spent &nbsp; &nbsp; &nbsp;</th>
+        <th>Completed?</th>
+    </tr>
+    <% @courses.each do |course| %>
+        <tr>
+            <td><%= course.name %></td>
+            <td><%= course.hours_spent %></td>
+            <td><%= course.completed %></td>
+        </tr>
+    <% end %>
+</table>
 <p><%= link_to 'Add New Course', new_course_path %></p>

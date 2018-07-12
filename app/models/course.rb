@@ -1,4 +1,4 @@
 class Course < ApplicationRecord
   belongs_to :student
-  belongs_to :goal
+  belongs_to :chart
 end

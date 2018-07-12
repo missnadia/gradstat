@@ -41,8 +41,10 @@ class CoursesController < ApplicationController
   def course_params
     params.require(:course).permit(
       :student_id,
-      :goal_id,
-      :name
+      :course_id,
+      :name,
+      :time_spent,
+      :completed
     )
   end
 end

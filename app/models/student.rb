@@ -1,6 +1,6 @@
 class Student < ApplicationRecord
-  has_many :course
-  has_many :goals, through: :courses
+  has_many :courses
+  has_many :charts, through: :courses
   has_secure_password
 
   def full_name

@@ -2,8 +2,8 @@
 
   <div class="info">
     <p><strong>Lesson:</strong> <%= @course.name %></p>
-    <p><strong>Logged Hours:</strong> <%= @course.goal.hours_spent %></p>
-    <p><strong>Completed?</strong> <%= @course.goal.completed %></p>
+    <p><strong>Logged Hours:</strong> <%= @course.time_spent %></p>
+    <p><strong>Completed?</strong> <%= @course.completed %></p>
 
     <% if current_user.admin %>
       <%= link_to 'Edit Course', [:edit, @course] %></p>

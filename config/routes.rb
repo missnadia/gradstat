@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :courses
-  resources :goals
+  resources :charts
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

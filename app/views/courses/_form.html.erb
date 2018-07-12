@@ -1,11 +1,12 @@
 <%= form_for(@course) do |f| %>
   <ul>  
     <%= f.label :name %>:<br>
-    <%= name_field(@course) %>
-  </ul>  
+    <%= f.collection_select :name, Course::LESSONS, :to_s, :to_s, 
+    :include_blank => true %>
+  </ul>
   <ul>
-    <%= f.label :hours_spent, "How much time did you spend on this lesson?" %><br>
-    <%= f.number_field :hours_spent, min: 0 %> minutes
+    <%= f.label :time_spent, "How much time did you spend on this lesson?" %><br>
+    <%= f.number_field :time_spent, min: 0 %> minutes
   </ul>    
   <ul>
     <%= f.label :completed, "Lesson completed? (Check if completed)" %>

@@ -6,7 +6,7 @@
     </tr>
     <% @courses.each do |course| %>
         <tr>
-            <td><%= course.name %></td>
+            <td><%= link_to course.name, course_path(course) %></td>
             <td><%= course.time_spent %></td>
             <td><%= course.completed %></td>
         </tr>

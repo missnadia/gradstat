@@ -2,7 +2,7 @@
   <ul>  
     <%= f.label :name %>:<br>
     <%= f.collection_select :name, Course::LESSONS, :to_s, :to_s, 
-    :include_blank => true %>
+    include_blank: true %>
   </ul>
   <ul>
     <%= f.label :time_spent, "How much time did you spend on this lesson?" %><br>
@@ -13,6 +13,6 @@
     <%= f.check_box :completed %>
   </ul>    
   <ul>
-    <%= f.submit "Add Course" %>
+    <%= f.submit %>
   </ul>
 <% end %>

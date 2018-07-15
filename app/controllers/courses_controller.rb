@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update]
+  before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def index
     @courses = Course.all
@@ -32,6 +32,11 @@ class CoursesController < ApplicationController
     end
   end
 
+  def destroy
+    @course.destroy
+    redirect_to courses_path
+  end
+
   private
 
   def set_course
@@ -40,11 +45,10 @@ class CoursesController < ApplicationController
 
   def course_params
     params.require(:course).permit(
-      :student_id,
-      :chart_id,
       :name,
       :time_spent,
-      :completed
+      :completed,
+      :date
     )
   end
 end

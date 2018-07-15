@@ -4,8 +4,9 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :time_spent
       t.boolean :completed
+      t.datetime :date
 
-      t.timestamps null: false
+      t.timestamps null: true
     end
   end
 end

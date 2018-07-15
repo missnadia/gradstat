@@ -3,12 +3,14 @@
     <th>Course &nbsp; &nbsp; &nbsp;</th>
     <th>Logged Hours &nbsp; &nbsp; &nbsp;</th>
     <th>Completed?</th>
+    <th>Date</th>
   </tr>
   <% @courses.each do |course| %>
     <tr>
-        <td><%= link_to course.name, courses_path(@course) %></td>
+        <td><%= link_to course.name, course_path(course) %></td>
         <td><%= course.time_spent %></td>
-        <td><%= course.completed %></td>
+        <td><%= course.completed ? "Yes" : "No" %></td>
+        <td><%= course.date %></td>
     </tr>
   <% end %>   
 </table>

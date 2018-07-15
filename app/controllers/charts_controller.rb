@@ -1,5 +1,5 @@
 class ChartsController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update]
+  before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def index
     Course.all
@@ -40,7 +40,8 @@ class ChartsController < ApplicationController
 
   def chart_params
     params.require(:chart).permit(
-      :date
+      :student_id,
+      :course_id
     )
   end
 end

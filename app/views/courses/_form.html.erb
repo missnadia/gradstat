@@ -11,7 +11,11 @@
   <ul>
     <%= f.label :completed, "Lesson completed? (Check if completed)" %>
     <%= f.check_box :completed %>
-  </ul>    
+  </ul>
+  <ul>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+  </ul>
   <ul>
     <%= f.submit %>
   </ul>

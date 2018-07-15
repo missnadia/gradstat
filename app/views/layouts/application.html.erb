@@ -19,6 +19,7 @@
             <% if current_user %>
               <li><%= link_to "#{current_user.username}!", student_path(current_user) %></li>
               <li><%= link_to "Courses", courses_path %></li>
+              <li><%= link_to "Comparison Chart", charts_path %></li>
               <li><%= link_to "Log Out", logout_path, method: :delete %></li>
             <% else %>
               <li><%= link_to "Sign Up", new_student_path %></li>

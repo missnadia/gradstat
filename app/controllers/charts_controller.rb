@@ -1,9 +1,8 @@
 class ChartsController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update]
 
-  def new
-    @chart = Chart.create(chart_params)
-    redirect_to student_path(@chart.student)
+  def index
+    Course.all
   end
 
   def new

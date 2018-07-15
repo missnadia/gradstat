@@ -1,4 +1,4 @@
 class Chart < ApplicationRecord
-  has_many :courses
-  has_many :students, through: :courses
+  belongs_to :student
+  belongs_to :course
 end

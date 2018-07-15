@@ -13,21 +13,21 @@
 ActiveRecord::Schema.define(version: 2018_06_29_192139) do
 
   create_table "charts", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "course_id"
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_charts_on_course_id"
+    t.index ["student_id"], name: "index_charts_on_student_id"
   end
 
   create_table "courses", force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "chart_id"
     t.string "name"
     t.integer "time_spent"
     t.boolean "completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["chart_id"], name: "index_courses_on_chart_id"
-    t.index ["student_id"], name: "index_courses_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|

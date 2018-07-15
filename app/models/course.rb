@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
-  belongs_to :student
-  belongs_to :chart
+  has_many :charts
+  has_many :students, through: :charts
 
   LESSONS = [
     "Introduction to Rails",
@@ -20,4 +20,5 @@ class Course < ApplicationRecord
     "Rails form_tag",
     "Rails form_tag Lab"
   ]
+
 end

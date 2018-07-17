@@ -1,7 +1,7 @@
 <%= form_for(@student) do |f| %>
-    <%= render 'form' %>
     <ul>
         <%= f.label :username %>:<br>
         <%= f.text_field :username %>
     </ul>
+    <%= render 'form' %>
 <% end %>

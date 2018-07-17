@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root 'static#home'
 
-  resources :students
-  resources :courses
-  resources :charts
+  resources :students do
+    resources :courses
+  end
+  resources :charts, only: [:show, :index]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

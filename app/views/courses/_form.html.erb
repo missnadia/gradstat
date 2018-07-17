@@ -1,31 +1,19 @@
 <%= form_for(@course) do |f| %>
-  <% if current_user.admin? %>
-    <ul>
-      <%= f.label :name, "Select Course:" %><br>
-      <%= f.collection_select :name, Course.all, :id, :name, 
-      include_blank: true %>
-    </ul>
-    <ul>
-      <%= f.label :name, "Add New Course:" %><br>
-      <%= f.text_field :name %>
-    </ul>
-  <% else %>
-    <ul>
-      <%= f.label :name, "Select Course:" %><br>
-      <%= f.collection_select :name, Course.all, :id, :name, include_blank: true %>
-    </ul>
-  <% end %>
+  <ul>
+    <%= f.label :name, "Select Course:" %><br>
+    <%= f.collection_select :name, Course::LESSONS, :to_s, :to_s, value: params[:name], include_blank: true %>
+  </ul>
   <ul>
     <%= f.label :time_spent, "How much time did you spend on this lesson?" %><br>
-    <%= f.number_field :time_spent, min: 0 %> minutes
+    <%= f.number_field :time_spent, min: 0, value: @course.time_spent %> minutes
   </ul>    
   <ul>
     <%= f.label :completed, "Lesson completed? (Check if completed)" %>
-    <%= f.check_box :completed %>
+    <%= f.check_box :completed, value: params[:completed] %>
   </ul>
   <ul>
     <%= f.label :date %>
-    <%= f.date_field :date %>
+    <%= f.date_field :date, value: params[:date] %>
   </ul>
   <ul>
     <%= f.submit %>

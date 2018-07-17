@@ -1,7 +1,9 @@
 class Course < ApplicationRecord
   has_many :charts
   has_many :students, through: :charts
-  validates :name, presence: true, uniqueness: true
+  has_many :course_students
+  has_many :students, through: :course_students
+  validates :name, presence: true
   validates :date, presence: true
 
   LESSONS = [

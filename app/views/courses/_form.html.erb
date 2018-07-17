@@ -1,9 +1,20 @@
 <%= form_for(@course) do |f| %>
-  <ul>  
-    <%= f.label :name %>:<br>
-    <%= f.collection_select :name, Course::LESSONS, :to_s, :to_s, 
-    include_blank: true %>
-  </ul>
+  <% if current_user.admin? %>
+    <ul>
+      <%= f.label :name, "Select Course:" %><br>
+      <%= f.collection_select :name, Course.all, :id, :name, 
+      include_blank: true %>
+    </ul>
+    <ul>
+      <%= f.label :name, "Add New Course:" %><br>
+      <%= f.text_field :name %>
+    </ul>
+  <% else %>
+    <ul>
+      <%= f.label :name, "Select Course:" %><br>
+      <%= f.collection_select :name, Course.all, :id, :name, include_blank: true %>
+    </ul>
+  <% end %>
   <ul>
     <%= f.label :time_spent, "How much time did you spend on this lesson?" %><br>
     <%= f.number_field :time_spent, min: 0 %> minutes

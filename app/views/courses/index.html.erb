@@ -12,6 +12,14 @@
         <td><%= course.completed ? "Yes" : "No" %></td>
         <td><%= course.date %></td>
     </tr>
-  <% end %>   
+  <% end %>
+  <tr>
+    <th>Total Hours</th>
+    <td><%= @courses.total_hours %></td>
+  </tr>
+  <tr>
+    <th>Total Courses Completed</th>
+    <td><%= @courses.total_completed %> of <%= @courses.total_lessons %></td>
+  </tr>
 </table>
 <p><%= link_to 'Add New Course', new_course_path %></p>

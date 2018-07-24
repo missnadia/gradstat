@@ -21,7 +21,7 @@
                 <% if current_user.admin? %>
                   <%= link_to "ADMIN #{current_user.username}", student_path(current_user) %>
                 <% else %>
-                  <%= link_to "#{current_user.username}!", student_path(current_user) %>
+                  <%= link_to "#{current_user.username}", student_path(current_user) %>
                 <% end %>
               </li>
               <li><%= link_to "Courses", courses_path %></li>

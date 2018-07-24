@@ -16,7 +16,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = current_user.courses.build(course_params)
+    @course = current_user.courses.create(course_params)
     if @course.save
       redirect_to @course
     else
@@ -48,7 +48,8 @@ class CoursesController < ApplicationController
       :name,
       :time_spent,
       :completed,
-      :date
+      :date,
+      :student_id
     )
   end
 end

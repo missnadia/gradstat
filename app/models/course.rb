@@ -1,10 +1,9 @@
 class Course < ApplicationRecord
-  has_many :charts
-  has_many :students, through: :charts
   has_many :course_students
   has_many :students, through: :course_students
   validates :name, presence: true
   validates :date, presence: true
+  belongs_to :student
 
   LESSONS = [
     "Introduction to Rails",
@@ -30,7 +29,7 @@ class Course < ApplicationRecord
   end
 
   def self.total_completed
-    self.where(completed: true).count
+    self.where(completed: true).total_lessons
   end
 
   def self.total_lessons

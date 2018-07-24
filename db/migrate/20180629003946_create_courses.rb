@@ -5,6 +5,7 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.integer :time_spent
       t.boolean :completed
       t.datetime :date
+      t.belongs_to :student, foreign_key: true
 
       t.timestamps null: true
     end

@@ -6,6 +6,7 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
+    @avatar = Avatar.new
   end
 
   def edit
@@ -42,7 +43,11 @@ class StudentsController < ApplicationController
       :email,
       :first_name,
       :last_name,
-      :admin
-    )
+      :admin,
+      :id,
+      avatar_attributes: [
+        :url,
+        :student_id
+      ])
   end
 end

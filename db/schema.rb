@@ -10,22 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_17_211109) do
+ActiveRecord::Schema.define(version: 2018_07_23_201030) do
 
-  create_table "charts", force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_charts_on_course_id"
-    t.index ["student_id"], name: "index_charts_on_student_id"
+  create_table "avatars", force: :cascade do |t|
+    t.string "url"
   end
 
   create_table "course_students", force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "course_id"
+    t.integer "student_id_id"
+    t.integer "course_id_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["course_id_id"], name: "index_course_students_on_course_id_id"
+    t.index ["student_id_id"], name: "index_course_students_on_student_id_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -33,8 +30,10 @@ ActiveRecord::Schema.define(version: 2018_07_17_211109) do
     t.integer "time_spent"
     t.boolean "completed"
     t.datetime "date"
+    t.integer "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["student_id"], name: "index_courses_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|

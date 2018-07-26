@@ -35,4 +35,20 @@ class Course < ApplicationRecord
   def self.total_lessons
     self.distinct.count(:name)
   end
+
+  def self.class_name
+    self.distinct.pluck(:name)
+  end
+
+  def self.average_time
+    self.group(:name).pluck('avg('time_spent')')
+  end
+
+  def student_username=(username)
+    self.student = Student.find(or_create_by(username: username))
+  end
+
+  def student_username
+    self.student ? self.student.username : nil
+  end
 end

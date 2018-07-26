@@ -3,6 +3,7 @@ class ChartsController < ApplicationController
 
   def index
     @charts = Chart.all
+    @courses = Course.all
   end
 
   def show

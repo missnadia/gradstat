@@ -1,11 +1,17 @@
 <h2>Course Comparison</h2>
 <table>
   <tr>
-    <th>Course &nbsp; &nbsp; &nbsp;</th>
-    <th>Time Spent &nbsp; &nbsp; &nbsp;</th>
-    <th>Completed?</th>
-    <th>Date</th>
+    <th>Course</th>
+    <th>Time Spent</th>
   </tr>
   <tr>
+      <tr>
+        <% @courses.class_name.each do |course| %>
+          <td><%= course %></td>
+        <% @courses.average_time.each do |time| %>
+          <td><%= time %></td>
+      </tr>
+      <% end %>  
+    <% end %>
   </tr>
 </table>

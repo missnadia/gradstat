@@ -20,12 +20,16 @@
     </tr>
   <% end %>
   <tr>
-    <th>Total Hours</th>
-    <td><%= @courses.total_hours %></td>
+    <th>Your Total Hours</th>
+    <td><%= @student_total %></td>
+  </tr>
+  <tr>
+    <th>Incomplete Courses</th>
+    <td><%= @student_incompleted %></td>
   </tr>
   <tr>
     <th>Total Courses Completed</th>
-    <td><%= @courses.total_completed %> of <%= @courses.total_lessons %></td>
+    <td><%= @student_completed %> of <%= @courses.course_completed %></td>
   </tr>
 </table>
 <p><%= link_to 'Add New Course', new_course_path %></p>

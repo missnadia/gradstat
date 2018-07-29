@@ -2,16 +2,12 @@
 <table>
   <tr>
     <th>Course</th>
-    <th>Time Spent</th>
+    <th>Average Time Spent</th>
   </tr>
-  <tr>
-      <tr>
-        <% @courses.class_name.each do |course| %>
-          <td><%= course %></td>
-        <% @courses.average_time.each do |time| %>
-          <td><%= time %></td>
-      </tr>
-      <% end %>  
-    <% end %>
-  </tr>
+  <% @average_time.each do |course, time| %>
+    <tr>
+      <td><%= course %></td>
+      <td><%= time %></td>
+    </tr>
+  <% end %>
 </table>

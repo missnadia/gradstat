@@ -1,9 +1,9 @@
 class Course < ApplicationRecord
   has_many :course_students
   has_many :students, through: :course_students
+  belongs_to :student
   validates :name, presence: true
   validates :date, presence: true
-  belongs_to :student
 
   LESSONS = [
     "Introduction to Rails",
@@ -28,8 +28,16 @@ class Course < ApplicationRecord
     self.sum(:time_spent)
   end
 
+  def self.total_incompleted
+    self.where(completed: false).total_lessons
+  end
+
   def self.total_completed
     self.where(completed: true).total_lessons
+  end
+
+  def self.course_completed
+    LESSONS.count
   end
 
   def self.total_lessons
@@ -40,8 +48,12 @@ class Course < ApplicationRecord
     self.distinct.pluck(:name)
   end
 
-  def self.average_time
-    self.group(:name).pluck('avg('time_spent')')
+  def self.average_hours
+    self.group(:name).average(:time_spent)
+  end
+
+  def self.student_hours
+    self.group(:name).sum(:time_spent)
   end
 
   def student_username=(username)

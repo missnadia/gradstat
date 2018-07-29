@@ -2,7 +2,10 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def index
-    current_user.admin ? @courses = Course.all : @courses = current_user.courses
+    current_user.admin ? @courses = Course.all.order('date DESC') : @courses = current_user.courses.order('date DESC')
+    @student_total = current_user.courses.total_hours
+    @student_incompleted = current_user.courses.total_incompleted
+    @student_completed = current_user.courses.total_completed
   end
 
   def new

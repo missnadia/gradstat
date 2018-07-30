@@ -1,10 +1,10 @@
-<%= form_for(@student) do |f| %>
+<%= form_for([@student, Avatar.new]) do |f| %>
   <ul>
-    <%= f.fields_for :avatars do |f| %>
-      <%= f.label :url, "Image URL:" %><br>
-      <%= f.text_field :url, value: params[:url] %>
-    <% end %>
+    <%= f.label :url, "Image URL:" %><br>
+    <%= f.text_field :url %>
   </ul>
+<% end %>
+<%= form_for(@student) do |f| %>
   <ul>
     <%= f.label :first_name, "First Name:" %><br>
     <%= f.text_field :first_name %>

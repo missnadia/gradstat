@@ -2,11 +2,12 @@ class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def show
+    @avatars = Avatar.all
   end
 
   def new
     @student = Student.new
-    @avatar = Avatar.new
+    @avatar = Student.avatar.new
   end
 
   def edit

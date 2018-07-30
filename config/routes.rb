@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'static#home'
 
   resources :students do
-    resources :avatars
+    resources :avatars, only: [:create]
   end
 
   resources :courses

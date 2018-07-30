@@ -1,0 +1,6 @@
+<%= form_for([@student, @avatar]) do |f| %>
+    <ul>
+        <%= f.label :url, "Image URL:" %><br>
+        <%= f.text_field :url, value: params[:url] %>
+    </ul>
+<% end %>

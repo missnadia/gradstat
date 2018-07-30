@@ -1,8 +1,10 @@
 class AvatarsController < ApplicationController
     before_action :set_avatar, only: [:show, :edit, :update, :destroy]
 
-    def new
-    end
+    def create
+        @avatar = Avatar.create(avatar_params)
+        redirect_to student_path(@avatar.student)
+      end
 
     private
 

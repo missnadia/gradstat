@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root 'static#home'
 
-  resources :students do
-    resources :avatars, only: [:create]
+  resources :courses do
+    resources :comments, only: [:create, :destroy]
   end
-
-  resources :courses
+  
+  resources :students
   resources :charts, only: [:index]
 
   get '/login' => 'sessions#new'

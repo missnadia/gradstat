@@ -2,12 +2,10 @@ class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def show
-    @avatars = Avatar.all
   end
 
   def new
     @student = Student.new
-    @avatar = Student.avatar.new
   end
 
   def edit
@@ -44,11 +42,7 @@ class StudentsController < ApplicationController
       :email,
       :first_name,
       :last_name,
-      :admin,
-      :id,
-      avatar_attributes: [
-        :url,
-        :student_id
-      ])
+      :admin
+    )
   end
 end

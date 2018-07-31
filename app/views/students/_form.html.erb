@@ -1,9 +1,3 @@
-<%= form_for([@student, Avatar.new]) do |f| %>
-  <ul>
-    <%= f.label :url, "Image URL:" %><br>
-    <%= f.text_field :url %>
-  </ul>
-<% end %>
 <%= form_for(@student) do |f| %>
   <ul>
     <%= f.label :first_name, "First Name:" %><br>

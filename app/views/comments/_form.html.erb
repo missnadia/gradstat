@@ -1,0 +1,9 @@
+<%= form_for([@course, @course.comments.build]) do |f| %>
+    <ul>
+      <%= f.label :comment, 'Any Comments?' %>
+      <%= f.text_field :comment %>
+    </ul>
+    <ul>
+      <%= f.submit %>
+    </ul>
+  <% end %>  

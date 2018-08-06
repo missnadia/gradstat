@@ -42,7 +42,12 @@ class StudentsController < ApplicationController
       :email,
       :first_name,
       :last_name,
-      :admin
+      :admin,
+      :name,
+      :provider,
+      :uid,
+      :oauth_token,
+      :oauth_expires_at
     )
   end
 end

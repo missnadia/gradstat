@@ -1,13 +1,16 @@
-<%= form_for @student, url: '/login' do |f| %>
-  <ul>
-    <%= f.label :username, "Username:" %><br>
-    <%= f.text_field :username %>
-  </ul>
-  <ul>
-  <%= f.label :password, "Password:" %><br>
-  <%= f.password_field :password %>
-  </ul>
-  <ul>
-  <%= f.submit "Log In" %>
-  </ul>
-<% end %>
+<h2>Login</h2>
+<div class="form">
+  <%= form_for @student, url: '/login' do |f| %>
+    <ul>
+      <%= f.label :email, "Email:" %><br>
+      <%= f.text_field :email %>
+    </ul>
+    <ul>
+      <%= f.label :password, "Password:" %><br>
+      <%= f.password_field :password %>
+    </ul>
+    <ul>
+      <%= f.submit "Log In", class: "submit_button" %>
+    </ul>
+  <% end %>
+</div>

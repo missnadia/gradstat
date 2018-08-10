@@ -4,36 +4,30 @@
     <title>Gradstat</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-        <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
-            <% if current_user %>
-              <% if current_user.admin? %>
-                | <%= link_to "ADMIN #{current_user.username}", student_path(current_user) %>
-              <% else %>
-                | <%= link_to "#{current_user.username}", student_path(current_user) %>
-              <% end %>
-                | <%= link_to "Courses", courses_path %>
-                | <%= link_to "Compare Chart", charts_path %>
-                | <%= link_to "Log Out", logout_path, method: :delete %>
-            <% else %>
-                | <%= link_to "Sign Up", new_student_path %>
-                | <%= link_to "Log In", login_path %>
-                | <%= link_to "Log in with Google", "/auth/google_oauth2" %>
-            <% end %>
-          </div>
-      </div>
+    <div class="navbar">
+      <ul>
+        <li><a href="<%= root_url %>"/>Home</a></li>
+        <% if current_user %>
+          <% if current_user.admin? %>
+            <li><%= link_to "ADMIN #{current_user.username} Profile", student_path(current_user) %></li>
+          <% else %>
+            <li><%= link_to "#{current_user.username} Profile", student_path(current_user) %></li>
+          <% end %>
+            <li><%= link_to "Course Log", courses_path %></li>
+            <li><%= link_to "Compare Chart", charts_path %></li>
+            <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+        <% else %>
+            <li><%= link_to "Sign Up", new_student_path %></li>
+            <li><%= link_to "Log In", login_path %></li>
+            <li><%=link_to "Login via Facebook", student_facebook_omniauth_authorize_path %></li>
+        <% end %>
+      </ul>
     </div>
-
-    <!-- content -->
-    <div class="container" role="main">
-      <%= yield %>
-    </div>
+    <%= yield %>
   </body>
 </html>

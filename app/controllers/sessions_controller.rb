@@ -6,17 +6,14 @@ class SessionsController < ApplicationController
   def create
     if auth_hash
       if student = Student.find_by(email: auth_hash.info.email)
-        session[:student_id] = student.id
-        redirect_to courses_url
+        login_redirect(student)
       else
         student = Student.from_omniauth(auth_hash)
-        session[:student_id] = student.id
-        redirect_to courses_url
+        login_redirect(student)
       end
     elsif student = Student.find_by(email: params[:student][:email])
       if student && student.authenticate(params[:student][:password])
-        session[:student_id] = student.id
-        redirect_to courses_url
+        login_redirect(student)
       end
     else
       redirect_to login_path
@@ -32,5 +29,10 @@ class SessionsController < ApplicationController
 
   def auth_hash
     request.env["omniauth.auth"]
+  end
+
+  def login_redirect(student)
+    session[:student_id] = student.id
+    redirect_to courses_url
   end
 end

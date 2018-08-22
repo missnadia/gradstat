@@ -16,7 +16,7 @@ class Student < ApplicationRecord
       student.email = auth.info.email
       student.first_name = auth.info.name.split(" ")[0]
       student.last_name = auth.info.name.split(" ")[-1]
-      student.username = auth.info.name.split(" ")[0][0].lowercase + auth.info.name.split(" ")[-1].lowercase
+      student.username = auth.info.name.split(" ")[0][0].downcase + auth.info.name.split(" ")[-1].downcase
       student.password = "password"
       student.uid = auth.info.uid
       student.provider = auth.info.provider

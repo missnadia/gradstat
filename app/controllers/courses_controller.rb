@@ -35,6 +35,10 @@ class CoursesController < ApplicationController
     end
   end
 
+  def total_lessons
+    @courses = current_user.courses
+  end
+
   def destroy
     @course.destroy
     redirect_to courses_path

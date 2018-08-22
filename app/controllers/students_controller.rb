@@ -17,7 +17,7 @@ class StudentsController < ApplicationController
       session[:student_id] = @student.id
       redirect_to student_path(@student)
     else
-      render :new
+      render '/signup'
     end
   end
 

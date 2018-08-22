@@ -1,0 +1,7 @@
+<h2>All Courses</h2>
+<div class="form">
+    <h3><%= @courses.total_lessons %>:</h3>
+    <% @courses.class_name.each do |course| %>
+        <%= course %><br>
+    <% end %>
+</form>

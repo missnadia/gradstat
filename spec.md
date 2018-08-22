@@ -7,7 +7,7 @@ Specs:
 - [x] Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients)  -student has_many :comments, through: :courses 
 - [x] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)  -course.name contains comments
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)  -Student, Course, Comment
-- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)  -student/total_lessons; total_lessons (course class method)
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)  -course/total_lessons; total_lessons (course class method)
 - [x] Include signup (how e.g. Devise)  -custom route
 - [x] Include login (how e.g. Devise)  -custom route
 - [x] Include logout (how e.g. Devise)  -custom route

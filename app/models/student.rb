@@ -1,5 +1,4 @@
 class Student < ApplicationRecord
-  devise :omniauthable, :omniauth_providers => [:facebook]
   has_many :course_students
   has_many :courses, through: :course_students
   has_many :courses
@@ -11,20 +10,17 @@ class Student < ApplicationRecord
     self.first_name + " " + self.last_name
   end
   
-  def self.new_with_session(params, session)
-    super.tap do |student|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        student.email = data["email"] if student.email.blank?
-      end
-    end
-  end
-  
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |student|
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |student|
       student.email = auth.info.email
-      student.password = Devise.friendly_token[0,20]
-      student.first_name = auth.info.first_name
-      student.last_name = auth.info.last_name
+      student.first_name = auth.info.name.split(" ")[0]
+      student.last_name = auth.info.name.split(" ")[-1]
+      student.username = auth.info.name
+      student.password = "password"
+      student.uid = auth.info.uid
+      student.provider = auth.info.provider
+      student.oauth_token = auth.credentials.token
+      student.save!
     end
   end
 end

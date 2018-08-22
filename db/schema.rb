@@ -50,9 +50,7 @@ ActiveRecord::Schema.define(version: 2018_08_06_160308) do
     t.boolean "admin"
     t.string "provider"
     t.string "uid"
-    t.string "name"
     t.string "oauth_token"
-    t.datetime "oauth_expires_at"
   end
 
   create_table "users", force: :cascade do |t|

@@ -9,7 +9,7 @@
 students = Student.create([{ 
     username: "sfields",
     password: "password",
-    email: "sallyfields@abc.com",
+    email: "sfields@abc.com",
     first_name: "Sally",
     last_name: "Fields",
     admin: true

@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.6'
+ruby '2.3.1'
 
 gem 'rails', '~> 5.2.0'
 gem 'sqlite3'
@@ -22,10 +22,11 @@ gem 'require_all'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'rb-readline'
 gem 'tux'
 gem 'bcrypt'
 gem 'omniauth'
-gem 'omniauth-google-oauth2', '~> 0.2.1'
+gem 'omniauth-facebook'
 gem 'groupdate'
 gem 'dotenv-rails'
 

@@ -7,7 +7,7 @@
   <% @average_time.each do |course, time| %>
     <tr>
       <td><%= course %></td>
-      <td><%= time %></td>
+      <td><%= time.round(2) %></td>
     </tr>
   <% end %>
 </table>

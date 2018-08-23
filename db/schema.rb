@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2018_08_06_160308) do
     t.string "name"
     t.integer "time_spent"
     t.boolean "completed"
-    t.datetime "date"
+    t.date "date"
     t.integer "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"

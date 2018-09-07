@@ -2,6 +2,11 @@ class CommentsController < ApplicationController
     def new
         @comment = Comment.new
     end
+
+    def edit
+        @course = Course.find(params[:course_id])
+        @comment = @course.comments.find(params[:id])
+    end
     
     def create
         @course = Course.find(params[:course_id])

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
 
   resources :courses do
-    resources :comments, only: [:create, :destroy]
+    resources :comments
   end
   
   resources :students

@@ -1,24 +1,40 @@
 class CommentsController < ApplicationController
+    before_action :set_course, only: [:edit, :create, :update, :destroy]
+    before_action :set_comment, only: [:edit, :destroy]
+
     def new
         @comment = Comment.new
     end
 
     def edit
-        @course = Course.find(params[:course_id])
-        @comment = @course.comments.find(params[:id])
     end
     
     def create
-        @course = Course.find(params[:course_id])
         @comment = @course.comments.create(params[:comment].permit(:comment))
         redirect_to @course
     end
+
+    def update
+        if @comment.update(params[:comment])
+            redirect_to @course
+        else
+            render :edit
+        end
+      end
   
     def destroy
-        @course = Course.find(params[:course_id])
-        @comment = @course.comments.find(params[:id])
         @comment.destroy
         redirect_to @course
+    end
+
+    private
+
+    def set_course
+        @course = Course.find(params[:course_id])
+    end
+
+    def set_comment
+        @comment =  @course.comments.find(params[:id])
     end
   end
   

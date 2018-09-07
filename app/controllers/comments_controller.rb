@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
     before_action :set_course, only: [:edit, :create, :update, :destroy]
-    before_action :set_comment, only: [:edit, :destroy]
+    before_action :set_comment, only: [:edit, :update, :destroy]
 
     def new
         @comment = Comment.new
@@ -15,12 +15,12 @@ class CommentsController < ApplicationController
     end
 
     def update
-        if @comment.update(params[:comment])
+        if @comment.update(comment: params[:comment])
             redirect_to @course
         else
             render :edit
         end
-      end
+    end
   
     def destroy
         @comment.destroy

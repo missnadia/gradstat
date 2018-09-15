@@ -5,19 +5,25 @@ GradStat is a course management application that logs your study time as well as
 ## Setup
 
 `$ git clone 'git@github.com:missnadia/gradstat.git'`
+
 OR
+
 `$ git clone 'https://github.com/missnadia/gradstat.git'`
 
 Then execute:
 
 `$ bundle install`
+
 `$ rails db:migrate`
+
 `$ rails db:seed`
+
 `$ thin start --ssl`
 
 Admin username/password (db/seeds.rb):
 
 Email: "sfields@abc.com"
+
 Password: "password"
 
 ## Contributing

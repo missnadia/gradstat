@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
         login_redirect(student)
       end
     else
-      redirect_to login_path
+      redirect_to '/login', notice: 'Incorrect Email/Password'
     end
   end
 

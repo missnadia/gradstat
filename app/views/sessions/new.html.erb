@@ -1,6 +1,11 @@
 <h2>Login</h2>
 <div class="form">
   <%= form_for @student, url: '/login' do |f| %>
+    <div id="error_explanation">
+      </ul>
+        <%= notice %>
+      </ul>
+    </div>
     <ul>
       <%= f.label :email, "Email:" %><br>
       <%= f.text_field :email %>

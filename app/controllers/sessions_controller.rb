@@ -14,6 +14,8 @@ class SessionsController < ApplicationController
     elsif student = Student.find_by(email: params[:student][:email])
       if student && student.authenticate(params[:student][:password])
         login_redirect(student)
+      else
+        redirect_to '/login', notice: 'Incorrect Email/Password'
       end
     else
       redirect_to '/login', notice: 'Incorrect Email/Password'

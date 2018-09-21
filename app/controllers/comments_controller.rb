@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 
     def update
         if @comment.update(comment: params[:comment])
-            redirect_to @course
+           redirect_to @course
         else
             render :edit
         end

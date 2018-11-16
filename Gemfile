@@ -27,6 +27,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'groupdate'
 gem 'dotenv-rails'
+gem 'rack', '>= 2.0.6'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

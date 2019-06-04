@@ -1,6 +1,6 @@
 # GradStat
 
-GradStat is a course management application that logs your study time as well as comparing your pace with other students taking the same course.
+GradStat is a course management application built with Ruby on Rails that logs your study time as well as comparing your pace with other students taking the same course.
 
 ## Setup
 
